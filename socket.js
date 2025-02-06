@@ -14,7 +14,11 @@ const onSocket = (io) => {
 
 		socket.on("disconnect", () => {
 			const user = users.filter((user) => user.sockeId === socket.id);
-			io.emit("global:message", `${user[0].name} just left !`);
+			if (user[0] && user[0].name) {
+				io.emit("global:message", `${user[0].name} just left !`);
+			} else {
+				io.emit("global:message", `A user just left !`);
+			}
 		});
 	});
 };

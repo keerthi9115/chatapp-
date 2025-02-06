@@ -20,5 +20,5 @@ app.use(express.static(__dirname + "/public"));
 const io = new Server(httpServer);
 onSocket(io);
 
-const port = process.env.PORT || 8080;
+const port = process.env.PORT || 8838;
 httpServer.listen(port, () => console.log(`Listening on port ${port}...`));
